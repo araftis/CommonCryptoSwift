@@ -17,20 +17,19 @@ import CommonCrypto
 
 /**
  Algorithms implemented in this module.
-
- - constant  sha1: HMAC with SHA1 digest
- - constant md5: HMAC with MD5 digest
- - constant sha256: HMAC with SHA256 digest
- - constant sha384: HMAC with SHA384 digest
- - constant sha512: HMAC with SHA512 digest
- - constant sha224: HMAC with SHA224 digest
  */
 public enum HmacAlgorithm : UInt32 {
+    /// HMAC with SHA1 digest
     case sha1 = 0   // kCCHmacAlgSHA1
+    /// HMAC with MD5 digest
     case md5 = 1    // kCCHmacAlgMD5
+    /// HMAC with SHA256 digest
     case sha256 = 2 // kCCHmacAlgSHA256
+    /// HMAC with SHA384 digest
     case sha384 = 3 // kCCHmacAlgSHA384
+    /// HMAC with SHA512 digest
     case sha512 = 4 // kCCHmacAlgSHA512
+    /// HMAC with SHA224 digest
     case sha224 = 5 // kCCHmacAlgSHA224
 
     public var digestLength : Int {

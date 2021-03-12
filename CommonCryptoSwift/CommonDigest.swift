@@ -34,7 +34,7 @@ import CommonCrypto
  let hash = hasher.final()
  ```
 
-Many of the one shot methods are also available via conveniences on Data and String.
+Many of the one shot methods are also available via conveniences on `Data` and `String`.
  */
 public protocol CommonDigest {
 

@@ -15,6 +15,7 @@
 import Foundation
 import CommonCrypto
 
+/// Defines the algorithm to use when wrapping keys. Currently only supports AES, as defined by [rfc3394](https://tools.ietf.org/html/rfc3394#section-2.2.3.1).
 public enum WrappingAlgorithm : UInt32 {
     case aes = 1 // kCCWRAPAES
 }
@@ -37,7 +38,6 @@ public extension IV {
  - returns: The wrapped key.
 
  - throws: A CryptorError on error:
-   * **bufferTooSmall** indicates insufficent space in the wrappedKey buffer.
    * **paramError** can result from bad values for the kek, rawKey, and wrappedKey key data.
  */
 public func SymmetricKeyWrap(algorithm: WrappingAlgorithm = .aes,
@@ -70,14 +70,12 @@ public func SymmetricKeyWrap(algorithm: WrappingAlgorithm = .aes,
  - parameter initializationVector: The initialization value to be used.  The default value is `IV.rfc3394` is available as a constant for the standard IV to use.
  - parameter kek: The Key Encryption Key to be used to unwrap the raw key.
  - parameter wrappedKey: The wrapped key bytes.
- - parameter rawKey: The resulting raw key bytes. The space for this must be provided by the caller.
 
  The algorithm chosen is determined by the algorithm parameter and the size of the key being wrapped (ie aes128 for 128 bit keys).
 
  - returns: The unwrapped key.
 
  - throws: A CryptorError on error:
-   * **bufferTooSmall** indicates insufficent space in the wrappedKey buffer.
    * **paramError** can result from bad values for the kek, rawKey, and wrappedKey key data.
  */
 public func SymmetricKeyUnwrap(algorithm: WrappingAlgorithm = .aes,

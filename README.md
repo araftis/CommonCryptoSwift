@@ -2,7 +2,7 @@
 
 ## Overview
 
-This 99% a frontend to Apple's CommonCrypto framework. You can find the [source](https://opensource.apple.com/source/CommonCrypto/)  for that framework be found at Apple's opensource repository. The remaining 1% are some conveneinces on String and Data for performing basic hashing and cyptography operations.
+This 99% a frontend to Apple's CommonCrypto framework. You can find the [source code](https://opensource.apple.com/source/CommonCrypto/) for that framework at Apple's open source repository. The remaining 1% are some conveneinces on String and Data for performing basic hashing and cyptography operations. I should have covers for all functionality of CommonCrypto. Let me know if I'm missing anything, and I'll see about adding it.
 
 This was written for my CalPoly CSC 321 (Software Security) course, because I wanted to use Swift as my primary language for development. When I attempted to do that, I found that trying to access CommonCryptor from Swift was somewhat awkward at best, and mildly painful at worse. To that end, I wrote a simple Swift wrapper that makes accessing the CommonCrypto functions much easier to use.
 
@@ -52,14 +52,22 @@ Cryptor
 : The main cover class for the library. This is where you'll spend much of your time. Also contains the various enumerations and constants used by the library.
 
 CommonDigest
-: The protocol to define the interface for creation cryptographic hashes. Implemented by MD2, MD4, MD5, SHA1, SHA224, SHA256, SHA384, and SHA512.
+: The protocol to define the interface for creation cryptographic hashes. Implemented by MD2, MD4, MD5, SHA1, SHA224, SHA256, SHA384, and SHA512 classes.
 
 Hmac
 : Covers the CommonHmac functions.
 
 ## Platforms
 
-As of the initial writing, I've only made sure this works on macOS. Most of the code should compile on other platforms, however, some of the conveniences on Data require Apple's Security framework (uses SecRandomCopyBytes), and would need to be adaptor for other platforms.
+As of the initial writing, I've only made sure this works on macOS. Most of the code should compile on other platforms, however, some of the conveniences on Data require Apple's Security framework (uses SecRandomCopyBytes), and would need to be adaptor for other platforms. If you'd like to add the necessary support for compiling on Linux (or Windows) let me know, and I'll happily accept a push request.
+
+## Feedback
+
+While I'm pretty good with Swift, I'm sure some of my API choices could be debated. Let me know what you think. I'm open to suggestions for improving the API.
+
+## Unit Testing
+
+I've ported a number of the unit tests over from the original project to Swift. These all use the Swift API's, and are primarily designed to test the functionality of the wrapper. I'm making the assumption that the underlying framework is sufficiently tested, that we don't need to duplicate that specific work. Again, feel free to submit additional unit tests.
 
 ## License
 

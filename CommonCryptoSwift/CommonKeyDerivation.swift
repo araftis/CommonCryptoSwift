@@ -19,6 +19,9 @@ public enum PBKDFAlgorithm : UInt32 {
     case pbkdf2 = 2 //kCCPBKDF2
 }
 
+/**
+ The hashing algorithm to use then salting the password.
+ */
 public enum PseudoRandomAlgorithm : UInt32 {
     case hmacAlgSHA1   = 1 // kCCPRFHmacAlgSHA1
     case hmacAlgSHA224 = 2 // kCCPRFHmacAlgSHA224
@@ -39,11 +42,11 @@ public enum PseudoRandomAlgorithm : UInt32 {
 
  The following values are used to designate the PRF:
 
- * hmacAlgSHA1
- * hmacAlgSHA224
- * hmacAlgSHA256
- * hmacAlgSHA384
- * hmacAlgSHA512
+    * hmacAlgSHA1
+    * hmacAlgSHA224
+    * hmacAlgSHA256
+    * hmacAlgSHA384
+    * hmacAlgSHA512
 
  - returns: The resulting derived key produced by the function. The space for this must be provided by the caller.
 
